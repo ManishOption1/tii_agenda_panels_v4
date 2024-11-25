@@ -1,4 +1,4 @@
-const TIME_INTERVAL_SPEED=5000;
+const TIME_INTERVAL_SPEED=20000;
 function toggleProfilePopup(action, eno) {
     // popup.classList.toggle('visible');
      // Remove the 'highlight' class
