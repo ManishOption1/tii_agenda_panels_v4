@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>TII — Agenda</title>
+  <link rel="stylesheet" href="./css/bootstrap.min_v4.6.2.css">
+  <link rel="stylesheet" href="./style.css?t=aaa">
+  <link rel="stylesheet" href="./style_day.css?t=aaa">
+  <link rel="stylesheet" href="./style_agenda.css?t=aaa">
+</head>
+<!-- 24nov24 hidden -->
+<body style="overflow: hidden !important;">
+    <video class="video-bg" autoplay loop muted playsinline>
+      <source src="Verticle BG Loop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+<main>
+          <!-- TOP BAR ------------------------ -->
+              <div class="top_bar">
+                <div class="row">
+                    <div class="col-6">
+                      <img src="images/logo_left.png">
+                    </div>
+                    <div class="col-6 text-right">
+                      <img src="images/logo_right.png">
+                    </div>
+                </div>
+              </div>
+          <!-- End TOP BAR ------------------------ -->
+          <!-- Top buttons -->
+              <div class="day_buttons">
+                  <div class="row">
+                      <div class="col-6 text-right" ><a href="index.html" class="button_day active">Day 1</a></div>
+                      <div class="col-6 text-left" ><a href="day2.html" class="button_day">Day 2</a></div>
+                  </div>
+              </div>
+        <!-- End Top buttons -->
+   <!-- ************************************** -->
+        <!-- Agenda section -->
+        <div class="row " >
+              <div class="col-12 ">
+                        <!-- Timings -->
+                        <section v-for="(day, index) in schedule">
+                                <ul>
+                                        <li v-for="slot in day.agenda" v-bind:id="slot.current_li_id" >
+                                            <h3 class="row ">
+                                              <div class="timecls col-4 " >
+                                                {{slot.display.h}}:{{slot.display.m}} {{slot.display.a}} - {{slot.display.hto}}:{{slot.display.mto}} {{slot.display.ato}} 
+                                              </div>
+                                              <div class="desc col-7 " v-html="slot.desc"></div>
+                                              <div class="col-1 text-right click_to_expand" v-on:click="handleClick(slot.range[0], slot.range[1],slot.mid,slot.current_li_id)"> <div class="plusbutton">+</div></div>
+                                            </h3>
+                                            <div  v-bind:id="slot.mid" class="op" ></div>
+                                        </li>
+                                </ul>
+                        </section>
+                        <!-- End Timings -->
+              </div>
+          </div>
+        <!-- End Agenda section -->
+      <!-- ************************************** -->
+</main>
+<aside class="aside_tag">
+  <div class="clock">
+    <h3>{{time}}</h3>
+  </div>
+  <h1><img src="images/logo_left.png" width="100%" style="padding-right:20px"></h1>
+  <br>
+  <div><hr></div>
+  <div><h1></h1></div>
+  <!--  0 -- 9:30 AM - 10:00 AM Opening Ceremony and Address ----------------------------------------------------------------- -->
+            <div id="tmpl_op0" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 0 -- 9:30 AM - 10:00 AM Opening Ceremony and Address ----------------------------------------------------------------- -->
+              <div id="tmpl_op1" class="op text-center" >
+                <!-- speaker 1 -->
+                    <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op1" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #1: </h4>
+                                                <h4>
+                                                  The impact of AI on the semiconductor manufacturing industry
+                                                </h4>
+                                                <p>Dr. Belgacem Haba, Vice President, Adeia Corporation, USA</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',1)">
+                                       <img class="profile-image" src="images/dr_belgacem_haba.png" width="100px">
+                                      <div class="speaker_name">Dr. Belgacem Haba</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op1">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_belgacem_haba.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Belgacem Haba 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',1)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Dr. Belgacem Haba, born in 1957 in Algeria, is Senior Technical Fellow and VP at Adeia, leading 3D microelectronics R&D. He holds a Ph.D. from Stanford and has over 600 U.S. patents, ranking among the top 150 prolific inventors globally. His innovations are integral to billions of electronic devices.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 -->
+                <!-- speaker 2 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op2" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #2: </h4>
+                                                <h4>
+                                                  Who should own AI?
+                                                </h4>
+                                                <p>Prof. Philip Torr, Professor and Chief Scientific Advisor, Oxford, UK</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',2)">
+                                       <img class="profile-image" src="images/prof_philip_torr.png" width="100px">
+                                      <div class="speaker_name">Prof. Philip Torr</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op2">
+                                    <div class="col-12" style="text-align: justify;">
+                                      <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/prof_philip_torr.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Prof. Philip Torr 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',2)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Professor Philip Torr, a leading expert in computer vision and machine learning, founded the Torr Vision Group at Oxford. A Royal Society Wolfson Awardee, he has won the Marr Prize and numerous best paper awards. His work has contributed to industry tools like Boujou and spin-outs including FiveAI, Oxsight, and Eigent.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 -->
+              </div>
+  <!--  End 1st 10:00AM - 11:15 AM AI and Open Source ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 22222222222222222222222222222222222222222222222222222222 -->
+  <!-- 2st  11:15 AM - 11:30 AM Networking and Coffee Break ----------------------------------------------------------------- -->
+            <div id="tmpl_op2" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 2st  11:15 AM - 11:30 AM Networking and Coffee Break ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 33333333333333333333333333333333333333333333333333333333 -->
+   <!--  3rd 11:30 AM - 1:15 Compute for AI Models ----------------------------------------------------------------- -->
+          <div id="tmpl_op3" class="op text-center" >
+                <!-- speaker 1 -->
+                    <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op3" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #3: </h4>
+                                                <h4>
+                                                How AWS contributes to and supports the long-term vitality of AIML open-source communities
+                                                </h4>
+                                                <p>Dr. Shivagami Gugan, Chief Technologist, AWS, Middle East, Turkey & Africa</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',3)">
+                                       <img class="profile-image" src="images/dr_shivagami_gugan.png" width="100px">
+                                      <div class="speaker_name">Dr. Shivagami Gugan</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op3">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_shivagami_gugan.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Shivagami Gugan
+                                                <img class="close_img" onclick="toggleProfilePopup('close',3)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Dr. Shivagami Gugan, Chief Technologist at AWS for MENA, specializes in AI/ML, cloud architecture, and large-scale transformations. A DevOps Institute ambassador and Linux Foundation lead author, she has over two decades of expertise in modernizing mission-critical systems. Honored as a "Woman of Excellence" by India, she drives innovation for government and enterprise resilience.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 -->
+                <!-- speaker 2 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op4" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #4: </h4>
+                                                <h4>
+                                                  Degrees of openness in AI: Opportunities and challenges with open-source models
+                                                </h4>
+                                                <p>Dr. Natalia Vassilieva, Vice President and Field CTO, Cerebras Systems, USA</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',4)">
+                                       <img class="profile-image" src="images/dr_natalia_vassilieva.png" width="100px">
+                                      <div class="speaker_name">Dr. Natalia Vassilieva</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op4">
+                                    <div class="col-12" style="text-align: justify;">
+                                    <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_natalia_vassilieva.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Natalia Vassilieva
+                                                <img class="close_img" onclick="toggleProfilePopup('close',4)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Natalia, VP and Field CTO at Cerebras Systems, brings decades of expertise in NLP, CV, ML, and IR. Formerly a Senior Research Manager at HP Labs, she led AI research teams and directed HP Labs Russia. Natalia holds a PhD in Computer Science and has taught at St. Petersburg State University and the Computer Science Center.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 -->
+                 <!-- speaker 3 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op5" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #5: </h4>
+                                                <h4>
+                                                  Furiosa RNGD: A tensor contraction processor for sustainable AI computing
+                                                </h4>
+                                                <p>Dr. June Paik, Founder and Chief Executive Officer, FuriosaAI, USA</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',5)">
+                                       <img class="profile-image" src="images/dr_june_paik.png" width="100px">
+                                      <div class="speaker_name">Dr. June Paik</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op5">
+                                    <div class="col-12" style="text-align: justify;">
+                                    <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_june_paik.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. June Paik 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',5)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          June Paik is the Founder and CEO of FuriosaAI. Before founding FuriosaAI in 2017, he worked as both a hardware and software engineer at AMD and Samsung. June holds a master’s degree in electrical engineering from Georgia Tech.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 3 -->
+              </div>
+  <!-- End 3rd 11:30 AM - 1:15 Compute for AI Models ----------------------------------------------------------------- -->
+  <!-- == -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 44444444444444444444444444444444444444444 -->
+  <!-- 4st  1:15 PM - 2:30 PM Lunch ----------------------------------------------------------------- -->
+            <div id="tmpl_op4" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 4st  1:15 PM - 2:30 PM Lunch ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 5555555555555555555555555555555555555555555555555555555 -->
+  <!-- 5th  2:30 PM - 3:45 PM AI Governance ----------------------------------------------------------------- -->
+            <div id="tmpl_op5" class="op text-center" >
+                <!-- speaker 1 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op6" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #6: </h4>
+                                                <h4>
+                                                From software heritage to code commons: A vision for transparent and responsible AI in code-based model training
+                                                </h4>
+                                                <p>Prof. Roberto di Cosmo, Director, Software Heritage, France</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center" onclick="toggleProfilePopup('show',6)">
+                                       <img class="profile-image" src="images/prof_roberto_di_cosmos.png" width="100px">
+                                      <div class="speaker_name">Prof. Roberto Di Cosmos</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op6">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image"  style="float: left; margin: 0px 15px 15px 0px;" src="images/prof_roberto_di_cosmos.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                            Prof. Roberto Di Cosmos
+                                                <img class="close_img" onclick="toggleProfilePopup('close',6)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Roberto Di Cosmo, a Computer Science professor at University Paris Diderot (on leave at Inria), is a leader in theoretical computing and Free Software advocacy. He directs Software Heritage, a UNESCO-partnered initiative to archive global source code. Creator of the Mancoosi project and former IRILL director, he has published extensively and contributed to over 50 open-source projects with a €200M budget. He also chairs the Software chapter of France's National Committee for Open Science.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 -->
+                <!-- speaker 2 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op7" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #7: </h4>
+                                                <h4>
+                                                Only train what you actually need: Current trends in pre-training efficiency
+                                                </h4>
+                                                <p>Mr. Fabian Güra, Principal AI Engineer, BlueOrin, UAE</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',7)">
+                                      <img class="profile-image" src="images/mr_fabian_gura.png" width="100px">
+                                      <div class="speaker_name">Mr. Fabian Gura</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op7">
+                                    <div class="col-12" style="text-align: justify;">
+                                      <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/mr_fabian_gura.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Mr. Fabian Gura
+                                                <img class="close_img" onclick="toggleProfilePopup('close',7)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Fabian, Principal AI Engineer at BluOrion Dubai, co-founded its LLM research lab in 2023. Previously, he led teams at Google across Assistant, Search, and Speech, spearheading factuality efforts in Bard. With a background in engineering and HPC from TU Munich and ETH Zurich, his research focuses on enhancing LLM performance through math, hardware, and software integration.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 -->
+            </div>
+  <!-- End 5th  2:30 PM - 3:45 PM AI Governance ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 66666666666666666666666666666666 -->
+  <!-- 6st  3:45 PM - 4:00 PM  Networking and Coffee Break ----------------------------------------------------------------- -->
+            <div id="tmpl_op6" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 6st  3:45 PM - 4:00 PM  Networking and Coffee Break ----------------------------------------------------------------- -->
+  <!-- == -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 7777777777777777777777777777777777777777777 -->
+  <!-- 7th  4:00 PM - 5:15 PM Foundation Models and Machine Learning ----------------------------------------------------------------- -->
+  <div id="tmpl_op7" class="op text-center" >
+                <!-- speaker 1 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op8" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #8: </h4>
+                                                <h4>
+                                                Comparing adaptation and training from scratch for bilingual LLMs
+                                                </h4>
+                                                <p>Dr. Neha Sengupta, Principal Applied Scientist, G42, UAE</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',8)">
+                                       <img class="profile-image" src="images/dr_neha_sengupta.png" width="100px">
+                                      <div class="speaker_name">Dr. Neha Sengupta</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op8">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_neha_sengupta.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                            Dr. Neha Sengupta
+                                                <img class="close_img" onclick="toggleProfilePopup('close',8)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Neha Sengupta, Principal Applied Scientist at Inception, G42, leads the NLP Applied Science team in Abu Dhabi. Since 2018, she has developed Arabic-centric LLMs, conversational agents, and translation systems. She holds a PhD from IIT Delhi, focusing on large-scale graph algorithms, and previously worked at IBM Research on smart energy grids and resource scheduling.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 -->
+                <!-- speaker 2 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op9" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #9: </h4>
+                                                <h4>
+                                                  The ChatGLM's road to AGI
+                                                </h4>
+                                                <p>Prof. Jie Tang, WeBank Chair Professor of Computer Science, Tsinghua University, China</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',9)">
+                                       <img class="profile-image" src="images/prof_jie_tang.png" width="100px">
+                                      <div class="speaker_name">Prof. Jie Tang</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op9">
+                                    <div class="col-12" style="text-align: justify;">
+                                    <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/prof_jie_tang.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Prof. Jie Tang
+                                                <img class="close_img" onclick="toggleProfilePopup('close',9)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Jie Tang is a WeBank Chair Professor of Computer Science at Tsinghua University. He is a Fellow of the ACM, a Fellow of AAAI, and a Fellow of IEEE. His interest is artificial general intelligence (AGI). His research received the SIGKDD Test-of-Time Award (10-year Best Paper). He also received the SIGKDD Service Award.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 -->
+            </div>
+  <!-- End 7th  4:00 PM - 5:15 PM Foundation Models and Machine Learning ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 8888888888888888888888888888888888 -->
+  <!-- 8st  5:15 PM - 6:30 PM Panel: The Future of Open-Source AI in the Real World. ----------------------------------------------------------------- -->
+            <div id="tmpl_op8" class="op text-center" >
+                <!-- Panel& Moderator -->
+                <div class="speaker_box">
+                  <div class="row p-1 profile-popup2"  id="box_op10" style="display:flex;width:100% !important">
+                        <!-- Panel 1 -->
+                              <div class="col-12 text-left">
+                                <h4>Discover how open-source AI is transforming industries like academia, healthcare, law, and finance by providing equitable access to Large Language Models. This panel will explore its role in driving business opportunities, accelerating innovation, addressing ethical challenges, and fostering sustainable growth. Experts will also discuss tackling challenges like regulation and control, sharing insights on the evolution of open-source AI in delivering real-world solutions.</h4>
+                              </div>
+                              <div class="col-12 text-left mt-3">
+                                      <h4>Panelists</h4>
+                              </div>
+                              <!-- 1  -->
+                              <div class="col-3 p-3 text-left"  >
+                                          <div class="profile-icon_panel">
+                                                      <div class="text-center profile-panel_box">
+                                                          <img class="profile-image_panel" src="images/panels/dr_abedb_enaichoudche.png">
+                                                      </div>
+                                                      <div class="speaker_details_panel">
+                                                          <div class="speaker_name_panel">Dr. Abed Benaichouche</div>
+                                                          <div class="">CEO</div>
+                                                          <div class="">Open Innovation AI</div>
+                                                          <div class="">UAE</div>
+                                                      </div>
+                                          </div>
+                              </div>
+                              <!-- end 1  -->
+                              <!-- 2 -->
+                              <div class="col-3 p-3 text-left">
+                                        <div class="profile-icon_panel">
+                                                  <div class="text-center profile-panel_box">
+                                                      <img class="profile-image_panel" src="images/panels/prof_roberto_di_cosmos.png">
+                                                  </div>
+                                                  <div class="speaker_details_panel">
+                                                          <div class="speaker_name_panel">Dr. Roberto Di Cosmo</div>
+                                                          <div class="">Director</div>
+                                                          <div class="">Software Heritage</div>
+                                                          <div class="">France</div>
+                                                  </div>
+                                        </div>
+                              </div>
+                              <!-- end 2 -->
+                              <!-- 3 -->
+                              <div class="col-3 p-3 text-left" >
+                                  <div class="profile-icon_panel">
+                                        <div class="text-center profile-panel_box">
+                                            <img class="profile-image_panel" src="images/panels/dr_nicolas_granatino.png">
+                                        </div>
+                                        <div class="speaker_details_panel">
+                                                <div class="speaker_name_panel">Dr. Nicolas Granatino</div>
+                                                <div class="">Partner and Co-founder</div>
+                                                <div class="">STEM AI</div>
+                                                <div class="">United Kingdom</div>
+                                        </div>
+                                  </div>
+                              </div>
+                              <!-- end 3 -->
+                              <!-- 4 -->
+                              <div class="col-3 p-3 text-left" >
+                                      <div class="profile-icon_panel">
+                                                  <div class="text-center profile-panel_box">
+                                                      <img class="profile-image_panel" src="images/panels/dr_june_paik.png">
+                                                  </div>
+                                                  <div class="speaker_details_panel">
+                                                                <div class="speaker_name_panel">Dr. June Paik</div>
+                                                                <div class="">Founder and CEO</div>
+                                                                <div class="">FuriosaAI</div>
+                                                                <div class="">United States</div>
+                                                                <div>&nbsp;</div>
+                                                  </div>
+                                      </div>
+                              </div>
+                              <!-- end 4 -->
+                              <!-- 5 -->
+                              <div class="col-3 p-3 text-left" >
+                                          <div class="profile-icon_panel">
+                                              <div class="text-center profile-panel_box">
+                                                  <img class="profile-image_panel" src="images/panels/pia_michel.png">
+                                              </div>
+                                              <div class="speaker_details_panel">
+                                                  <div class="speaker_name_panel">Pia Michel</div>
+                                                  <div class="">Head of Science Translation</div>
+                                                  <div class="">Prima Materia</div>
+                                                  <div class="">European</div>
+                                              </div>
+                                          </div>
+                              </div>
+                              <!-- end 5 -->
+                              <!-- 6 -->
+                        <!-- Moderator -->
+                              <div class="col-12 text-left mt-3">
+                                    <h4>Moderator</h4>
+                              </div>
+                              <div class="col-3 p-3 text-left" >
+                                              <div class="profile-icon_panel">
+                                                  <div class="text-center profile-panel_box">
+                                                      <img class="profile-image_panel" src="images/panels/mehdi.png">
+                                                  </div>
+                                                  <div class="speaker_details_panel">
+                                                      <div class="speaker_name_panel">Mehdi Ghissassi</div>
+                                                      <div class="">Chief Product Officer</div>
+                                                      <div class="">AI71</div>
+                                                      <div class="">UAE</div>
+                                                  </div>
+                                              </div>
+                              </div>
+                  </div>
+              </div>
+          <!-- End Panel 1 -->
+            </div>
+  <!-- End 8st  5:15 PM - 6:30 PM Panel: The Future of Open-Source AI in the Real World. ----------------------------------------------------------------- -->
+  <!-- == -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 99999999999999999999999999999 -->
+  <!-- 9st  5:15 7:00 PM - 10:00 PM Gala Dinner. ----------------------------------------------------------------- -->
+            <div id="tmpl_op9" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 7:00 PM - 10:00 PM Gala Dinner. ----------------------------------------------------------------- -->
+  <!-- == -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- 
+  == 
+  == 
+  -->
+</aside>
+<!-- partial -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+  <script src='js/vue.js'></script>
+<script src='js/moment.min.js'></script>
+<script  src="./script.js?t=123"></script>
+<script  src="./comm_timer.js?t=123"></script>
+<script>
+$(document).ready(function () {
+        // Add a new button dynamically
+        $('.plusbutton:eq(0)').hide();
+        $('.plusbutton:eq(2)').hide();
+        $('.plusbutton:eq(4)').hide();
+        $('.plusbutton:eq(6)').hide();
+        // $('.plusbutton:eq(8)').hide();
+        $('.plusbutton:eq(9)').hide();
+});
+</script>
+</body>
+</html>

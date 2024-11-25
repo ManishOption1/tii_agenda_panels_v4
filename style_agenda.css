@@ -1,0 +1,311 @@
+/* MAINTAG */
+main {
+  position: relative;
+  flex: 1;
+  order: 2;
+  overflow: auto;
+  /* height: 100vh; */
+}
+/* //sid changes */
+/* main {
+  background-image: url("images/bg.png");
+  color: #fff;
+  background-size: cover;
+} */
+main {
+  /* background-image: url(images/bg.png); */
+  color: #fff;
+  background-size: cover;
+  overflow: hidden !important; /* 24nov24 hidden */
+}
+/* //End sid changes */
+/*End MAINTAG */
+/* Top bar */
+.top_bar {
+  border:0px solid #f00;
+}
+.top_bar img {
+  width: 300px;
+  margin-left: 40px;
+  padding: 20px;
+  margin-right: 40px;
+}
+/* End Top bar */
+/*  */
+/* Day 1 and day 2 */
+.day_buttons {
+  background: #E1E1E11A;
+  backdrop-filter: blur(124px);
+  padding:30px;
+  }
+  .button_day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+    width:90%;
+    height: 115px;
+    border: 2px solid #A6BCCA;
+    background: #BDBDBD33;
+    box-shadow: 0px 7px 16.7px rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-size: 50px;
+    font-weight: normal;
+    line-height: 40px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color:#fff;
+    text-decoration: none !important;
+    color: inherit; /* Inherit the color from the non-hover state */
+    }
+    .button_day.active {
+    background: linear-gradient(107.64deg, #0D3F69 1.05%, #441732 112.42%);
+    text-decoration: none !important;
+    color: inherit; /* Inherit the color from the non-hover state */
+    }
+    .button_day.active:hover, .button_day:hover  {
+    text-decoration: none !important;
+    color: inherit; /* Inherit the color from the non-hover state */
+    }
+  /*End  Day 1 and day 2 */
+  /*  */
+  /* Main header */
+  main header {
+    flex: 0 0 auto;
+    -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+    padding: 1em 0.5em;
+    color: rgba(0, 0, 17, 0.4);
+    background: #fff;
+    line-height: 0;
+    /* width:50px; */
+    max-width:50px;
+    /* height: 78%; */
+    height: 80%;
+  }
+/* End Main header */
+/* ***************************************************************** */
+/* Control div scroll range input */
+.control {
+  position: absolute;
+  z-index: 2;
+  font-size: 0.5em;
+  /* width: 1230px; */
+  width:1560px;
+}
+input[type="range"] {
+  transform: rotate(90deg);          /* Rotate the slider 90 degrees */
+  transform-origin: left bottom;     /* Set the origin to the left bottom corner */
+  height: 50px;                      /* Adjust the height as needed */
+  -webkit-appearance: none;          /* Remove default browser styling */
+}
+.control header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* text-transform: uppercase; */
+  cursor: pointer;
+}
+.control header div {
+  padding-left: 1em;
+}
+.control > div {
+  padding: 1em;
+}
+.control p {
+  margin: 0;
+}
+.control p + p {
+  margin-top: 1em;
+}
+.control input[type=range] {
+  padding: 0;
+  border: 0;
+  /* width: 15em; */
+  width:-webkit-fill-available;
+  vertical-align: middle;
+  border-radius: 1em;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  line-height: 1;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  transition: all 0.3s;
+  outline-offset: 0;
+  margin: 0;
+}
+.control input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 1em;
+  height: 1em;
+  border: none;
+  border-radius: 1em;
+  background: #E2E4E6;
+  background-image: none;
+  transform: scale(2);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.control button {
+  font: inherit;
+  border: none;
+  color: inherit;
+  width: 2em;
+  height: 2em;
+  font-size: 1em;
+  font-weight: 100;
+  background: rgba(255, 255, 255, 0.4);
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+.control.show {
+  transform: translateY(0%);
+}
+.control.show button {
+  transform: rotate(0deg);
+}
+/* End Control div scroll range input */
+/* ***************************************************************** */
+/* timer section fonts  */
+h3 {
+  margin: 0;
+  font-weight: 200;
+  font-size: 36px;
+}
+h3 b {
+  font-weight: 900;
+}
+/* End timer section fonts  */
+/*  */
+/* Info box */
+.speaker_box {
+  display: flex
+;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  width: 90%;
+  background: rgba(24, 31, 41, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  z-index: 1;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
+.speaker_box {
+h4 {
+font-size: 24px;
+font-weight: 600
+}
+}
+.speaker_box {
+p {
+font-size:18px;
+font-weight: 100;
+padding:2px;
+}
+.speaker_name {
+  font-size:20px;
+font-weight: 600;
+padding:2px;
+}
+}
+/* End Info box */
+/*  */
+/*  */
+/* Close button */
+.close_img {
+  float: right; margin: 15px;
+  width:30px;
+  cursor: pointer;
+}
+/*  */
+/*  */
+/* popuprelated css */
+.profile-icon {
+  cursor: pointer;
+  Border-radius:50px;
+}
+.profile-popup {
+  /* position: absolute; */
+  top: 0px;
+  /* right: -10px; */
+  /* background-color: #000; */
+  padding: 20px;
+  border-radius: 8px;
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+  /* width: 250px; */
+   opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  visibility: hidden;
+  z-index: 2000;
+}
+.profile-image {
+  border-radius: 50%;
+  border:1px solid #fff;
+}
+/* click_to_expand */
+.click_to_expand{ 
+}
+.speaker_bio_button{
+  margin-top:10px;
+  background-color: #ffffff36;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+/*  */
+.profile-image_panel {
+  border:1px solid #fff;
+  border-radius: 50%;
+  width:100px;
+  height:100px;
+  overflow: cover;
+}
+.profile-icon_panel {
+  /* border:1px solid #fff; */
+  /* cursor: pointer; */
+  Border-radius:20px;
+  padding:15px;
+  /* height:250px; */
+}
+.profile-panel_box {
+  width:100%; 
+  padding: 10px;
+}
+.speaker_details_panel {
+  text-align: center;
+  /* padding-left:10px; */
+  font-size: 14px;
+    color: #C7C7C7;
+}
+.speaker_name_panel{
+font-size:20px !important;
+font-weight: 600 !important;
+padding:2px !important;
+color:#FFF;
+}

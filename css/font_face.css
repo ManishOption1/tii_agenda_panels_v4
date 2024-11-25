@@ -1,0 +1,12 @@
+@font-face {
+    font-family: FSAlbertPro-Bold;
+    src: url('font/FSAlbertPro-Bold.ttf');
+  }
+  @font-face {
+    font-family: FSAlbertArabicWebBold;
+    src: url('font/FSAlbertArabicWebBold.ttf');
+  }
+  @font-face {
+    font-family: FSAlbertPro;
+    src: url('font/FSAlbertPro.ttf');
+  }

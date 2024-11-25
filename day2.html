@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>TII — Agenda</title>
+  <link rel="stylesheet" href="./css/bootstrap.min_v4.6.2.css">
+  <link rel="stylesheet" href="./style.css?t=aaa">
+  <link rel="stylesheet" href="./style_day.css?t=aaa">
+  <link rel="stylesheet" href="./style_agenda.css?t=aaa">
+</head>
+<!-- 24nov24 hidden -->
+<body style="overflow: hidden !important;">
+    <video class="video-bg" autoplay loop muted playsinline>
+      <source src="Verticle BG Loop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+<main>
+          <!-- TOP BAR ------------------------ -->
+          <div class="top_bar">
+            <div class="row">
+                <div class="col-6">
+                  <img src="images/logo_left.png">
+                </div>
+                <div class="col-6 text-right">
+                  <img src="images/logo_right.png">
+                </div>
+            </div>
+          </div>
+        <!-- End TOP BAR ------------------------ -->
+        <!-- Top buttons -->
+          <div class="day_buttons">
+              <div class="row">
+                  <div class="col-6 text-right" ><a href="index.html" class="button_day">Day 1</a></div>
+                  <div class="col-6 text-left" ><a href="day2.html" class="button_day active">Day 2</a></div>
+              </div>
+          </div>
+        <!-- End Top buttons -->
+        <!-- ************************************** -->
+        <!-- Agenda section -->
+        <div class="row " >
+              <div class="col-12 ">
+                        <!-- Timings -->
+                        <section v-for="(day, index) in schedule">
+                                <ul>
+                                        <li v-for="slot in day.agenda" v-bind:id="slot.current_li_id" >
+                                            <h3 class="row ">
+                                              <div class="timecls col-4 " >
+                                                {{slot.display.h}}:{{slot.display.m}} {{slot.display.a}} - {{slot.display.hto}}:{{slot.display.mto}} {{slot.display.ato}} 
+                                              </div>
+                                              <div class="desc col-7 " v-html="slot.desc"></div>
+                                              <div class="col-1 text-right click_to_expand" v-on:click="handleClick(slot.range[0], slot.range[1],slot.mid,slot.current_li_id)"> <div class="plusbutton">+</div></div>
+                                            </h3>
+                                            <div  v-bind:id="slot.mid" class="op" ></div>
+                                        </li>
+                                </ul>
+                        </section>
+                        <!-- End Timings -->
+              </div>
+          </div>
+        <!-- End Agenda section -->
+      <!-- ************************************** -->
+</main>
+<aside class="aside_tag">
+  <div class="clock">
+    <h3>{{time}}</h3>
+  </div>
+  <h1><img src="images/logo_left.png" width="100%" style="padding-right:20px"></h1>
+  <br>
+  <div><hr></div>
+  <div><h1></h1></div>
+  <!--  0 -- 9:00 AM - 10:45 AM    === Foundation Models 1 ----------------------------------------------------------------- -->
+            <div id="tmpl_op0" class="op text-center" >
+                <!-- speaker 1 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op0" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #10: </h4>
+                                                <h4>
+                                                Improving open language models at a practical size
+                                                </h4>
+                                                <p>Dr. Armand Joulin, Research Director, Google DeepMind, France</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',0)">
+                                      <img class="profile-image" src="images/dr_armand_joulin.png" width="100px">
+                                      <div class="speaker_name">Dr. Armand Joulin</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op0">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_armand_joulin.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Armand Joulin 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',0)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Armand is a Research Director at Google DeepMind, in charge of the open version of Gemini called Gemma. Prior to this, he was a Research Director at Meta in charge of EMEA, where he supervised several key open projects such as LLaMA, DINO or fastText.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 -->
+                <!-- speaker 2 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op1" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #11: </h4>
+                                                <h4>
+                                                Leveraging foundation models for the discovery of novel trustworthy algorithms
+                                                </h4>
+                                                <p>Dr. Alhussein Fawzi, AI Scientist, Google DeepMind, UK</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',1)">
+                                      <img class="profile-image" src="images/dr_alhussein_fawzi.png" width="100px">
+                                      <div class="speaker_name">Dr. Alhussein Fawzi</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op1">
+                                    <div class="col-12" style="text-align: justify;">
+                                      <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_alhussein_fawzi.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Alhussein Fawzi 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',1)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Alhussein Fawzi, co-founder and CEO of a stealth startup, was previously a research scientist at Google DeepMind. Awarded MIT Innovators Under 35 in 2023, his work focuses on AI for Science, using machine learning to discover new algorithms and mathematical results. He has published over 30 papers, including two in Nature (2022, 2023).
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 -->
+            </div>
+  <!--  0 -- 9:00 AM - 10:45 AM    === Foundation Models 1 ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 11111111111111111111111111111111111 -->
+  <!-- 1st 10:45 AM - 11:00 AM   === Networking and Coffee Break ----------------------------------------------------------------- -->
+            <div id="tmpl_op1" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 1st  10:45 AM - 11:00 AM   === Networking and Coffee Break ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+<!-- == 22222222222222222222222222222 -->
+<!-- 2nd 11:00 AM - 12:45 PM  ===  Foundation Models 2 ------------------------------------------------------------------- -->                          
+              <div id="tmpl_op2" class="op text-center" >
+                <!-- speaker 1 box_op2-->
+                    <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op2" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #12: </h4>
+                                                <h4>
+                                                    Gamification of large language models (LLMs)
+                                                </h4>
+                                                <p>Dr. Michal Valko, Principal Llama Engineer, Meta Paris, France</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',2)">
+                                      <img class="profile-image" src="images/dr_michal_valko.png" width="100px">
+                                      <div class="speaker_name">Dr. Michal Valko</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op2">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_michal_valko.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Michal Valko 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',2)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Michal, Principal Llama Engineer at Meta Paris and tenured researcher at Inria, specializes in minimal supervision algorithms. His work includes deep reinforcement learning, self-supervised learning, and large model fine-tuning. With a Ph.D. from the University of Pittsburgh and postdoc with Rémi Munos, Michal has worked at Google DeepMind Paris and focuses on scalable AI solutions.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 box_op2 -->
+                <!-- speaker 2 box_op3  -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op3" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #13 </h4>
+                                                <h4>
+                                                Falcon Mamba: The first competitive attention-free 7B language model
+                                                </h4>
+                                                <p>Dr. Jingwei Zuo, Researcher, Technology Innovation Institute, UAE</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',3)">
+                                      <img class="profile-image" src="images/dr_jingwei_zuo.png" width="100px">
+                                      <div class="speaker_name">Dr. Jingwei Zuo</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op3">
+                                    <div class="col-12" style="text-align: justify;">
+                                      <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_jingwei_zuo.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Jingwei Zuo 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',3)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Jingwei Zuo, Senior Researcher at the AI Center of the Technology Innovation Institute, leads research on Falcon Foundation Models and next-gen Large Language Models, exploring new architectures beyond Transformers. He earned his PhD in Computer Science from Université Paris-Saclay, receiving the Plateau de Saclay Doctoral Prize in 2022 for his work in Information and Communication Science and Technology
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 box_op3-->
+                <!-- speaker 3 box_op4  -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op4" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #14 </h4>
+                                                <h4>
+                                                Moshi: An open-source, real-time speech-to-speech LLM
+                                                </h4>
+                                                <p>Dr. Neil Zeghidour, Co-Founder and Chief Modeling Officer, Kyutai, France</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',4)">
+                                      <img class="profile-image" src="images/dr_neil_zeghidour.png" width="100px">
+                                      <div class="speaker_name">Dr. Neil Zeghidour</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op4">
+                                    <div class="col-12" style="text-align: justify;">
+                                      <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_neil_zeghidour.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                                Dr. Neil Zeghidour 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',4)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Neil is co-founder and Chief Modeling Officer at the Kyutai research lab. Previously at Google DeepMind, he led generative audio research, contributing to text-to-music APIs and neural audio codecs. He also worked at Facebook AI Research on speech recognition. Neil holds a PhD in machine learning from École Normale Supérieure and teaches speech processing at ENS Saclay.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 3 box_op4--> 
+              </div>
+  <!-- End 2nd 11:00 AM - 12:45 PM  ===  Foundation Models 2 ------------------------------------------------------------------- -->    
+    <!-- 
+  == 
+  == 
+  -->
+  <!-- == 33333333 -->
+  <!-- 3d 12:45 PM - 2:00 PM   === Lunch ----------------------------------------------------------------- -->
+        <div id="tmpl_op3" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 3d 12:45 PM - 2:00 PM   === Lunch ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+    <!-- == 44444444444444444444444444444444444 -->
+  <!-- 4th 2:00 PM - 3:15 PM   === Open Source for Business Opportunities----------------------------------------------------------------- -->
+            <div id="tmpl_op4" class="op text-center" >
+                <!-- speaker 1 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op5" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #15: </h4>
+                                                <h4>
+                                                The importance of open source for entrepreneurship, talent and resilience
+                                                </h4>
+                                                <p>Dr. Nicolas Granatino, Co-Founder, Andurance Ventures, UK</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',5)">
+                                      <img class="profile-image" src="images/dr_nicolas_granatino.png" width="100px">
+                                      <div class="speaker_name">Dr. Nicolas Granatino</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op5">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_nicolas_granatino.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                            Dr. Nicolas Granatino 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',5)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Nicolas Granatino, seasoned investor and entrepreneur, co-founded Andurance Ventures in 2011, focusing on the creator economy. Since 2023, he has invested in AI, including Mistral AI and H, and serves on the board of Kyutai, Europe's largest private AI lab. He co-founded StemAI.vc, an AI accelerator in Paris, and has made over 20 early-stage investments since 2024.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 -->
+                <!-- speaker 2 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op6" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #16: </h4>
+                                                <h4>
+                                                DeepThought: Teaching models to “reason”
+                                                </h4>
+                                                <p>Dr. Farouk Elghamry, Founding Engineer, Ruliad, UAE</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',6)">
+                                      <img class="profile-image" src="images/dr_farouk_elghamry.png" width="100px">
+                                      <div class="speaker_name">Dr. Farouk Elghamry</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op6">
+                                    <div class="col-12" style="text-align: justify;">
+                                      <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_farouk_elghamry.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                            Dr. Farouk Elghamry
+                                                <img class="close_img" onclick="toggleProfilePopup('close',6)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Farouk is founding engineer of Ruliad, a UAE-based AI and development company on a mission to enable self-sovereign general intelligence for government and enterprise
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 -->
+            </div>
+  <!-- End 4th 12:45 PM - 2:00 PM   === Lunch ----------------------------------------------------------------- -->
+  <!-- 
+  == 
+  == 
+  -->
+    <!-- == 5555555555555555 -->
+  <!-- 5th 3:15 PM - 3:30 PM   === Networking and Coffee Break ----------------------------- -->
+            <div id="tmpl_op5" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End5th 3:15 PM - 3:30 PM   === Networking and Coffee Break ------------------------------ -->
+  <!-- 
+  == 
+  == 
+  -->
+      <!-- == 666666666666666666666 -->
+  <!-- 6th 3:30 PM - 4:45 PM    === AI for Future Systems ----------------------------- -->
+            <div id="tmpl_op6" class="op text-center" >
+                <!-- speaker 1 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op7" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #17: </h4>
+                                                <h4>
+                                                How do we make the next PDB? Introducing Align to Innovate's data platform
+                                                </h4>
+                                                <p>Dr. Erika DeBenedictis, Chief Executive Officer, Pioneer Labs, USA</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',7)">
+                                      <img class="profile-image" src="images/dr_erika_debenedictis.png" width="100px">
+                                      <div class="speaker_name">Dr. Erika DeBenedictis</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op7">
+                                    <div class="col-12"  style="    text-align: justify;">
+                                          <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_erika_debenedictis.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                            Dr. Erika DeBenedictis 
+                                                <img class="close_img" onclick="toggleProfilePopup('close',7)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Erika, a former astronomer turned synthetic biologist, leads an academic group at The Francis Crick Institute and is CEO of Pioneer Labs. She co-founded Align to Innovate in 2021, a nonprofit enhancing life science research reproducibility through programmable experiments. Erika has a PhD from MIT, where she worked on synthetic biology and laboratory automation, and has contributed to major bioautomation initiatives.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 1 -->
+                <!-- speaker 2 -->
+                <div class="speaker_box">
+                        <div class="row p-1 profile-popup2"  id="box_op8" style="display:flex;width:100% !important">
+                                    <div class="col-9 text-left">
+                                              <h4>Talk #18: </h4>
+                                                <h4>
+                                                Building an AI scientist to automate discovery
+                                                </h4>
+                                                <p>Dr. Samuel Rodriques, Director & Chief Executive Officer, FutureHouse, USA</p>
+                                    </div>
+                                    <div class="col-3 p-3 text-center profile-icon" onclick="toggleProfilePopup('show',8)">
+                                      <img class="profile-image" src="images/dr_samuel_rodriques_2.png" width="100px">
+                                      <div class="speaker_name">Dr. Samuel Rodriques</div>
+                                      <div class="speaker_bio_button"> Speaker Bio </div>
+                                    </div>
+                        </div>
+                        <div class="row p-1 profile-popup" style="display:none" id="profilePopup_op8">
+                                    <div class="col-12" style="text-align: justify;">
+                                      <img class="profile-image" style="float: left; margin: 0px 15px 15px 0px;" src="images/dr_samuel_rodriques_2.png" width="20%" />
+                                          <h3 class="text_center">
+                                            <div>
+                                            Dr. Samuel Rodriques
+                                                <img class="close_img" onclick="toggleProfilePopup('close',8)"  src="images/close_x.png"  />
+                                            </div>
+                                          </h3><br><br>
+                                          Sam Rodriques is CEO and Director of FutureHouse, a non-profit AI-for-science lab focused on automating research in biology. Formerly, he led the Applied Biotechnology Lab at the Francis Crick Institute, inventing key biotechnologies. A PhD in Physics from MIT (2019), Sam has co-founded four companies and received numerous awards, including the 2022 Allen Distinguished Investigator Award.
+                                    </div>
+                      </div>
+                    </div>
+                <!-- End speaker 2 -->
+            </div>
+  <!-- End 6th 3:30 PM - 4:45 PM    === AI for Future Systems ------------------------------ -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 777777777777777777 -->
+  <!-- 7th 4:45 PM - 6:00 PM   === Panel: TII and the Open Source AI Vision ----------------------------- -->
+  <div id="tmpl_op7" class="op text-center" >
+                 <!-- Panel& Moderator -->
+                 <div class="speaker_box">
+                  <div class="row p-1 profile-popup2"  id="box_op10" style="display:flex;width:100% !important">
+                        <!-- Panel 1 -->
+                              <div class="col-12 text-left">
+                                <h4>The UAE is solidifying its position in AI innovation with the Falcon series of open-source Large Language Models, first introduced in 2023.
+                                  This panel features experts from the Advanced Technology Research Council ecosystem sharing insights on Falcon's impact, their commitment to open-sourcing for global equity, and strategies for maintaining a top global ranking. They’ll also discuss the future of Falcon and its role in the rise of AI71, a startup dedicated to expanding Falcon’s reach across organizations worldwide.</h4>
+                              </div>
+                              <div class="col-12 text-left mt-3">
+                                      <h4>Panelists</h4>
+                              </div>
+                              <!-- 1  -->
+                              <div class="col-3 p-3 text-left"  >
+                                          <div class="profile-icon_panel">
+                                                      <div class="text-center profile-panel_box">
+                                                          <img class="profile-image_panel" src="images/panels/dr_najwa_aaraj.png">
+                                                      </div>
+                                                      <div class="speaker_details_panel">
+                                                          <div class="speaker_name_panel">Dr. Najwa Aaraj</div>
+                                                          <div class="">CEO</div>
+                                                          <div class="">Technology Innovation Institute</div>
+                                                          <div class="">UAE</div>
+                                                      </div>
+                                          </div>
+                              </div>
+                              <!-- end 1  -->
+                              <!-- 2 -->
+                              <div class="col-3 p-3 text-left">
+                                        <div class="profile-icon_panel">
+                                                  <div class="text-center profile-panel_box">
+                                                      <img class="profile-image_panel" src="images/panels/mr_reda_nidhakou.png">
+                                                  </div>
+                                                  <div class="speaker_details_panel">
+                                                          <div class="speaker_name_panel">Mr. Reda Nidhakou</div>
+                                                          <div class="">Acting CEO</div>
+                                                          <div class="">VentureOne</div>
+                                                          <div class="">UAE</div>
+                                                  </div>
+                                        </div>
+                              </div>
+                              <!-- end 2 -->
+                              <!-- 3 -->
+                              <div class="col-3 p-3 text-left" >
+                                  <div class="profile-icon_panel">
+                                        <div class="text-center profile-panel_box">
+                                            <img class="profile-image_panel" src="images/panels/dr_yoelle_maarek.png">
+                                        </div>
+                                        <div class="speaker_details_panel">
+                                          <div class="speaker_name_panel">Dr. Yoelle Maarek</div>
+                                          <div class="">Chief Researcher</div>
+                                          <div class="">Technology Innovation Institute</div>
+                                          <div class="">Israel</div>
+                                        </div>
+                                  </div>
+                              </div>
+                              <!-- end 3 -->
+                              <!-- 4 -->
+                              <div class="col-3 p-3 text-left" >
+                                      <div class="profile-icon_panel">
+                                                  <div class="text-center profile-panel_box">
+                                                      <img class="profile-image_panel" src="images/panels/dr_mahir_nayfeh.png">
+                                                  </div>
+                                                  <div class="speaker_details_panel">
+                                                                <div class="speaker_name_panel">Dr. Mahir Nayfeh</div>
+                                                                <div class="">Chief Product Officer</div>
+                                                                <div class="">AI71</div>
+                                                                <div class="">UAE</div>
+                                                                <div>&nbsp;</div>
+                                                  </div>
+                                      </div>
+                              </div>
+                              <!-- end 4 -->
+                              <!-- 5 -->
+                        <!-- Moderator -->
+                              <div class="col-12 text-left mt-3">
+                                    <h4>Moderator</h4>
+                              </div>
+                              <div class="col-3 p-3 text-left" >
+                                              <div class="profile-icon_panel">
+                                                  <div class="text-center profile-panel_box">
+                                                      <img class="profile-image_panel" src="images/panels/dr_hakim_hacid.png">
+                                                  </div>
+                                                  <div class="speaker_details_panel">
+                                                    <div class="speaker_name_panel">Dr. Hakim Hacid</div>
+                                                    <div class="">Chief Researcher</div>
+                                                    <div class="">Technology Innovation Institute</div>
+                                                    <div class="">UAE</div>
+                                                  </div>
+                                              </div>
+                              </div>
+                  </div>
+              </div>
+          <!-- End Panel 1 -->
+  </div>
+  <!-- End 7th 4:45 PM - 6:00 PM   === Panel: TII and the Open Source AI Vision ------------------------------ -->
+  <!-- 
+  == 
+  == 
+  -->
+  <!-- == 8888888888888888888888888 -->
+  <!-- 8th 6:00 PM - 6:15 PM   === Closing Remarks ----------------------------- -->
+            <div id="tmpl_op8" class="op text-center" >
+                <!-- Nothing -->
+            </div>
+  <!-- End 8th 6:00 PM - 6:15 PM   === Closing Remarks ------------------------------ -->
+  <!-- 
+  == 
+  == 
+  -->
+    <!-- 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 -->
+  <!-- 
+  == 
+  == 
+  -->
+</aside>
+<!-- partial -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+  <script src='js/vue.js'></script>
+<script src='js/moment.min.js'></script>
+<script  src="./script_day2.js?t=123"></script>
+<script  src="./comm_timer.js?t=123"></script>
+<script>
+$(document).ready(function () {
+        // Add a new button dynamically
+        $('.plusbutton:eq(1)').hide();
+        $('.plusbutton:eq(3)').hide();
+        $('.plusbutton:eq(5)').hide();
+       // $('.plusbutton:eq(7)').hide();
+        $('.plusbutton:eq(8)').hide();
+});
+</script>
+</body>
+</html>

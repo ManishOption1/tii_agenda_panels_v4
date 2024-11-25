@@ -1,0 +1,115 @@
+  /* -------------------------------------------------------- */
+  .timecls {
+    text-transform: uppercase !important;
+  }
+  .desc {
+    text-transform: unset !important;
+  }
+/*  */
+.profile-container {
+  position: relative;
+}
+.profile-popup2 {
+  /* position: absolute; */
+  top: 0px;
+  /* right: -10px; */
+  /* background-color: #000; */
+  padding: 20px;
+  border-radius: 8px;
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+  /* width: 250px; */
+  opacity: 1;
+  transform: translateY(2px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* visibility: hidden; */
+  z-index: 2000;
+}
+.profile-popup.visible {
+  opacity: 1;
+  visibility: visible;
+  animation: bounceIn 1.6s ease-out;
+}
+.profile-popup2.visible {
+  opacity: 1;
+  visibility: visible;
+  animation: bounceIn .6s ease-out;
+}
+.profile-popup.visible_not {
+  opacity: .5;
+  visibility: visible;
+  animation: bounceIn 1.6s ease-out;
+}
+.profile-popup2.visible_not {
+  opacity: .5;
+  visibility: visible;
+  animation: bounceIn 1.6s ease-out;
+}
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+
+  }
+  
+  100% {
+    opacity: 1;
+
+  }
+}
+.profile-popup h2 {
+  margin: 0 0 10px;
+}
+.profile-popup2 h2 {
+  margin: 0 0 10px;
+}
+.profile-popup button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile-popup button:hover {
+  background-color: #45a049;
+}
+/*  */
+.current
+{
+  transition: ease-in-out 0.5s;
+}
+.current h3{
+ 
+  text-shadow: 0 0 20px rgb(245, 245, 245);
+  transition: text-shadow 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+.current .desc {
+
+  transform:translateX(20px);
+  transition: transform 0.5s ease-in-out; 
+}
+
+.plusbutton{
+  margin-left: 50px;
+  margin-bottom: 20p;
+  background-color: rgba(255, 255, 255, 0.186);
+  border-radius: 10px;
+  display: flex;
+  transition:  transform 0.5s ease-in-out;
+;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  margin-right: -30px;
+  border: 1px solid #ccc;
+}
+
+.desc{
+  transform:translateX(0px);
+  transition:  transform 0.5s ease-in-out,text-shadow 0.5s ease-in-out; 
+
+}
+.current .plusbutton{
+  transform: scale(0);
+  transition:  transform 0.5s ease-in-out,text-shadow 0.5s ease-in-out; 
+
+}
